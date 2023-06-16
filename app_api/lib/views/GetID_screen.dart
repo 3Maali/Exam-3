@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:app_api/services/api/User/getByID.dart';
 import 'package:app_api/services/extan/navigitor/pushEXT.dart';
 import 'package:app_api/services/extan/textfield.dart';
+import 'package:app_api/views/other/fonts.dart';
+import 'package:app_api/views/other/spaces.dart';
 import 'package:flutter/material.dart';
 
 class GetScreenID extends StatefulWidget {
@@ -18,15 +20,26 @@ class _GetScreenIDState extends State<GetScreenID> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.blueGrey,
+          backgroundColor: Colors.white30,
+          foregroundColor: Colors.white,
           elevation: 10,
           toolbarHeight: 50,
           centerTitle: true,
-          title: Text("Get by ID"),
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.perm_identity_sharp,
+              ),
+              kVSpace2,
+              Text(
+                "Get by ID",
+                style: fontAppBar,
+              ),
+            ],
+          ),
           leading: IconButton(
             onPressed: () {
-// Navigator.of(context).pop(OrderScreen());
               context.pop();
             },
             icon: Icon(Icons.arrow_back_ios_new),
@@ -44,9 +57,7 @@ class _GetScreenIDState extends State<GetScreenID> {
                         hint: "enter id",
                         label: "ID",
                         icon: Icons.insert_drive_file),
-                    const SizedBox(
-                      height: 5,
-                    ),
+                    kVSpace4,
                     Center(
                         child: ElevatedButton(
                             onPressed: () async {
@@ -77,12 +88,10 @@ class _GetScreenIDState extends State<GetScreenID> {
                                 fixedSize: Size(200, 50)),
                             child: const Text(
                               "Get",
-                              style: TextStyle(color: Colors.black),
+                              style: fontButtom,
                             ))),
                   ]),
-                  const SizedBox(
-                    height: 50,
-                  ),
+                  kVSpace64,
                   Center(
                     child: Container(
                       height: 200,
@@ -97,7 +106,6 @@ class _GetScreenIDState extends State<GetScreenID> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Column(
                                   mainAxisAlignment:

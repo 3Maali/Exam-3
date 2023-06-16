@@ -1,3 +1,4 @@
+import 'package:app_api/services/extan/loading.dart';
 import 'package:app_api/views/Home_screen.dart';
 import 'package:app_api/views/Login_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class _LodgingPageState extends State<LodgingPage> {
 
   @override
   Widget build(BuildContext context) {
+    lodingPage(context: context);
     return box.hasData("token") ? const HomeScreen() : LoginScreen();
   }
 }

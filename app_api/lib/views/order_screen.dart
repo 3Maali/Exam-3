@@ -1,4 +1,6 @@
 import 'package:app_api/services/extan/navigitor/pushEXT.dart';
+import 'package:app_api/views/other/fonts.dart';
+import 'package:app_api/views/other/spaces.dart';
 import 'package:flutter/material.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -10,22 +12,20 @@ class OrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.blueGrey,
+          backgroundColor: Colors.white30,
+          foregroundColor: Colors.white,
           elevation: 10,
           toolbarHeight: 50,
           centerTitle: true,
-          title: const Row(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.note,
               ),
-              SizedBox(
-                width: 3,
-              ),
+              kVSpace2,
               Text(
-                "Order",
+                "Order : ${order["title"]}",
                 style: TextStyle(fontSize: 15),
               ),
             ],
@@ -53,15 +53,11 @@ class OrderScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text(
-                            order["id"].toString(),
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.normal),
-                          ),
                           const Icon(
                             Icons.perm_identity_sharp,
                             size: 15,
                           ),
+                          Text(order["id"].toString(), style: fontInfo),
                         ],
                       ),
                       Row(
@@ -70,11 +66,7 @@ class OrderScreen extends StatelessWidget {
                             Icons.paste_rounded,
                             size: 15,
                           ),
-                          Text(
-                            order["title"],
-                            style: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.normal),
-                          ),
+                          Text(order["title"], style: fontInfo),
                         ],
                       ),
                       Row(
@@ -83,11 +75,7 @@ class OrderScreen extends StatelessWidget {
                             Icons.watch_later_outlined,
                             size: 15,
                           ),
-                          Text(
-                            order["create_at"],
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.normal),
-                          ),
+                          Text(order["create_at"], style: fontInfo),
                         ],
                       ),
                     ],
@@ -101,14 +89,8 @@ class OrderScreen extends StatelessWidget {
                         Icons.read_more_sharp,
                         size: 15,
                       ),
-                      Text(
-                        "Content :",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
+                      Text("Content :", style: fontContent),
+                      kVSpace4,
                     ],
                   ),
                   Row(

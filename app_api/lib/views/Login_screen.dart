@@ -5,6 +5,8 @@ import 'package:app_api/services/extan/loading.dart';
 import 'package:app_api/services/extan/navigitor/pushEXT.dart';
 import 'package:app_api/services/extan/textfield.dart';
 import 'package:app_api/views/Home_screen.dart';
+import 'package:app_api/views/other/fonts.dart';
+import 'package:app_api/views/other/spaces.dart';
 import 'package:app_api/views/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
@@ -18,32 +20,31 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white30,
+        foregroundColor: Colors.white,
         elevation: 10,
         toolbarHeight: 50,
         centerTitle: true,
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Icon(Icons.login),
+            kVSpace2,
             Text(
-              "Log In   ",
-              style: TextStyle(fontSize: 15),
+              "Log In",
+              style: fontAppBar,
             ),
-            Icon(Icons.login)
           ],
         ),
       ),
       body: ListView(children: [
         Padding(
-          // padding: const EdgeInsets.only(left: 200.0, right: 200.0),
           padding: const EdgeInsets.only(left: 200, right: 200, top: 50),
           child: Container(
             height: 300,
@@ -77,9 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.center,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 10,
-                ),
+                kVSpace4,
                 ElevatedButton(
                   onPressed: () async {
                     final Map body = {
@@ -92,12 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       final box = GetStorage();
                       box.write(
                           "token", json.decode(response.body)["data"]["token"]);
-
-
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
-                          (route) => false);
                       lodingPage(context: context);
+                      context.pushPage(HomeScreen());
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(jsonDecode(response.body)["msg"])));
@@ -109,24 +104,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       fixedSize: Size(200, 50)),
                   child: const Text(
                     'Log in',
-                    // style: ElevatedButton.styleFrom(shape: StadiumBorder()),
-                    style: TextStyle(fontSize: 12, color: Colors.black),
+                    style: fontButtom,
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                kVSpace2,
                 TextButton(
                   //---------------
                   onPressed: () {
-                    // context.pushAndRemove(view: SignUpScreen());
                     context.pushPage(SignUpScreen());
                   },
-                  child: const Text(
-                    "Does not have account",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500, color: Colors.blue),
-                  ),
+                  child: const Text("Does not have account", style: bluefont),
                 ),
               ],
             ))

@@ -1,10 +1,11 @@
 import 'dart:convert';
-
 import 'package:app_api/services/api/Auth/createUser.dart';
 import 'package:app_api/services/extan/navigitor/pushEXT.dart';
 import 'package:app_api/services/extan/textfield.dart';
 import 'package:app_api/views/Login_screen.dart';
 import 'package:app_api/views/loding_screen.dart';
+import 'package:app_api/views/other/fonts.dart';
+import 'package:app_api/views/other/spaces.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -24,20 +25,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white30,
+        foregroundColor: Colors.white,
         elevation: 10,
         toolbarHeight: 50,
         centerTitle: true,
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Sign Up   ",
-              style: TextStyle(fontSize: 15),
-            ),
             Icon(
               Icons.person_add,
+            ),
+            kVSpace2,
+            Text(
+              "Sign Up",
+              style: fontAppBar,
             ),
           ],
         ),
@@ -48,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             padding: const EdgeInsets.only(
                 left: 200, right: 200, top: 30, bottom: 5),
             child: Container(
-              height: 400,
+              height: 350,
               width: 90,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -56,7 +58,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 boxShadow: List.empty(growable: true),
                 shape: BoxShape.rectangle,
               ),
-
               child: Column(
                 children: [
                   TextFieldCustom(
@@ -84,8 +85,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     hint: "******",
                     label: "password",
                     icon: Icons.password,
-
-                    // obscureText: true,
                     isPassword: true,
                     onChanged: (pass) {
                       password = pass;
@@ -99,9 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             alignment: Alignment.center,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 4,
-                ),
+                kVSpace4,
                 ElevatedButton(
                   onPressed: () async {
                     final Map body = {
@@ -113,6 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     final response = await createUser(body: body);
 
                     if (response.statusCode == 200) {
+                      LodgingPage();
                       context.pushPage(LodgingPage());
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -125,22 +123,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fixedSize: Size(200, 50)),
                   child: const Text(
                     'Create Account',
-                    style: TextStyle(fontSize: 12, color: Colors.black),
+                    style: fontButtom,
                   ),
                 ),
-                const SizedBox(
-                  height: 2,
-                ),
+                kVSpace2,
                 TextButton(
-                  //---------------
                   onPressed: () {
                     context.pushPage(LoginScreen());
                   },
-                  child: const Text(
-                    "Already have Account",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500, color: Colors.blue),
-                  ),
+                  child: const Text("Already have Account", style: bluefont),
                 ),
               ],
             ),

@@ -8,9 +8,10 @@ import 'package:app_api/views/GetID_screen.dart';
 import 'package:app_api/views/Login_screen.dart';
 import 'package:app_api/views/Logout.dart';
 import 'package:app_api/views/order_screen.dart';
+import 'package:app_api/views/other/fonts.dart';
+import 'package:app_api/views/other/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white30,
+        foregroundColor: Colors.white,
         elevation: 10,
         toolbarHeight: 50,
         centerTitle: true,
@@ -48,12 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "HomePage",
-              style: TextStyle(fontSize: 15),
-            ),
             Icon(
               Icons.home,
+            ),
+            kVSpace2,
+            Text(
+              "HomePage",
+              style: fontAppBar,
             ),
           ],
         ),
@@ -63,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
               context.pushPage(GetScreenID());
             },
             icon: Icon(Icons.arrow_forward_ios_rounded),
-            color: Colors.black,
           )
         ],
       ),
@@ -108,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fixedSize: Size(200, 50)),
             child: const Text(
               "GetData",
-              style: TextStyle(fontSize: 12, color: Colors.black),
+              style: fontButtom,
             ),
             onPressed: () async {
               final result = await createOrder(context: context, body: {
@@ -135,7 +136,6 @@ class _HomeScreenState extends State<HomeScreen> {
               i--)
             InkWell(
                 onTap: () {
-                  // context.pushAndRemove(view: OrderScreen(order: item));
                   context.pushPage(OrderScreen(order: listOrders[i]));
                 },
                 child: CardOrders(order: listOrders[i])),

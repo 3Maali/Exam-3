@@ -53,8 +53,6 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: TextField(
-
-          //  style: const TextStyle(color: Colors.blueGrey),
           controller: widget.controller,
           onChanged: widget.onChanged,
           obscuringCharacter: "*",
