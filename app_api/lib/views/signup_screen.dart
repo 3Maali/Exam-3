@@ -4,8 +4,8 @@ import 'package:app_api/services/extan/navigitor/pushEXT.dart';
 import 'package:app_api/services/extan/textfield.dart';
 import 'package:app_api/views/Login_screen.dart';
 import 'package:app_api/views/loding_screen.dart';
-import 'package:app_api/views/other/fonts.dart';
-import 'package:app_api/views/other/spaces.dart';
+import 'package:app_api/views/style/fonts.dart';
+import 'package:app_api/views/style/spaces.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {

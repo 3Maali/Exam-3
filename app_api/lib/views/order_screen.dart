@@ -1,6 +1,6 @@
 import 'package:app_api/services/extan/navigitor/pushEXT.dart';
-import 'package:app_api/views/other/fonts.dart';
-import 'package:app_api/views/other/spaces.dart';
+import 'package:app_api/views/style/fonts.dart';
+import 'package:app_api/views/style/spaces.dart';
 import 'package:flutter/material.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -35,7 +35,6 @@ class OrderScreen extends StatelessWidget {
               context.pop();
             },
             icon: Icon(Icons.arrow_back_ios_new),
-            color: Colors.black,
           )),
       body: Padding(
         padding: const EdgeInsets.only(left: 100.0, right: 100.0, top: 200.0),

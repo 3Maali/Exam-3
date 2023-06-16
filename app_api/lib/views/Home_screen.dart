@@ -8,8 +8,8 @@ import 'package:app_api/views/GetID_screen.dart';
 import 'package:app_api/views/Login_screen.dart';
 import 'package:app_api/views/Logout.dart';
 import 'package:app_api/views/order_screen.dart';
-import 'package:app_api/views/other/fonts.dart';
-import 'package:app_api/views/other/spaces.dart';
+import 'package:app_api/views/style/fonts.dart';
+import 'package:app_api/views/style/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
